@@ -9,6 +9,16 @@ import Cluster from "./cluster";
 const Container = styled.div`
   display: flex;
 `;
+const Form = styled.form`
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+`;
+const Label = styled.label``;
+const Input = styled.input`
+  margin-top: 4px;
+  margin-bottom: 4px;
+`;
 
 class App extends React.Component {
   state = data;
@@ -82,6 +92,31 @@ class App extends React.Component {
     this.setState(newState);
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.number_1);
+    console.log(this.state.number_2);
+    console.log(this.state.clusters["cluster-2"]);
+  };
+
+  handleChangeNumber1 = event => {
+    const newState = {
+      ...this.state,
+      number_1: event.target.value
+    };
+
+    this.setState(newState);
+  };
+
+  handleChangeNumber2 = event => {
+    const newState = {
+      ...this.state,
+      number_2: event.target.value
+    };
+
+    this.setState(newState);
+  };
+
   render() {
     return (
       <Container>
@@ -101,6 +136,21 @@ class App extends React.Component {
             );
           })}
         </DragDropContext>
+        <Form onSubmit={this.handleSubmit}>
+          <Label>Number 1:</Label>
+          <Input
+            type="text"
+            value={this.state.number_1}
+            onChange={this.handleChangeNumber1}
+          ></Input>
+          <Label>Number 2:</Label>
+          <Input
+            type="text"
+            value={this.state.number_2}
+            onChange={this.handleChangeNumber2}
+          ></Input>
+          <Input type="submit" value="Submit"></Input>
+        </Form>
       </Container>
     );
   }

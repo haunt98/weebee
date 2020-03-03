@@ -29,7 +29,10 @@ const data = {
       serviceIDs: []
     }
   },
-  clusterOrder: ["cluster-1", "cluster-2"]
+  clusterOrder: ["cluster-1", "cluster-2"],
+  number_1: "",
+  number_2: "",
+  thuc_api: ""
 };
 
 export default data;

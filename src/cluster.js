@@ -1,4 +1,5 @@
 import React from "react";
+import "@atlaskit/css-reset";
 import styled from "styled-components";
 import { Droppable } from "react-beautiful-dnd";
 import Service from "./service";
